@@ -16,9 +16,10 @@ A pseudo-virtual-machine designed to be a target for Garter programs. These inst
 | label | *none* | *name* | Creates a pointer to that position in the assemblage |
 | add | 0 to 8 | + `register` | Add the value in `register` to `eax` and leave the result in `eax` |
 | inc | 9 to 17 | + `register` | increments the value in the given `register` |
-| sub | 17 to 25 | + `register` | Subtract the value in `register` to `eax` and leave the result in `eax` |
+| sub | 17 to 25 | + `register` | Subtract the value in `register` from `eax` and leave the result in `eax` |
 | dec | 26 to 34 | `register` | decrements the value in the given `register` |
 | mul | 35 to 43 | + `register` | Multiply the value in `register` to `eax` and leave the result in `eax` |
+| div | 44 to 52 | + `register` | Divide the value in `register` from `eax` and leave the result in `eax` |
 | db | 97 | `byte(s)` | Define arbitrary bytes in memory | 
 | ds | 100 | `short` | Define an arbitrary short integer in memory | 
 | compare | 253 | `register`, `register` | "Compare" two values (via subtraction) and set register flags |
