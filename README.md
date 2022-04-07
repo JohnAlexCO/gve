@@ -14,14 +14,14 @@ A pseudo-virtual-machine designed to be a target for Garter programs. These inst
 | INSTRUCTION | OPCODE(S) | ARGUMENTS | Detail |
 |---|---|---|---| 
 | label | *none* | *name* | Creates a pointer to that position in the assemblage |
-| add | 0 to 3 | + `register` | Add the value in `register` to `eax` and leave the result in `eax` |
-| inc | 4 | `register` | increments the value in the given `register` |
-| sub | 16 to 19 | + `register` | Subtract the value in `register` to `eax` and leave the result in `eax` |
-| dec | 20 | `register` | decrements the value in the given `register` |
-| mul | 32 to 35 | + `register` | Multiply the value in `register` to `eax` and leave the result in `eax` |
-| add | 48 to 51 | + `register` | Divide the value in `register` to `eax` and leave the result in `eax` |
-| db | 193 | `byte(s)` | Define arbitrary bytes in memory | 
-| ds | 196 | `short` | Define an arbitrary short integer in memory | 
+| add | 0 to 8 | + `register` | Add the value in `register` to `eax` and leave the result in `eax` |
+| inc | 9 | `register` | increments the value in the given `register` |
+| sub | 16 to 22 | + `register` | Subtract the value in `register` to `eax` and leave the result in `eax` |
+| dec | 23 | `register` | decrements the value in the given `register` |
+| mul | 32 to 40 | + `register` | Multiply the value in `register` to `eax` and leave the result in `eax` |
+| add | 48 to 56 | + `register` | Divide the value in `register` to `eax` and leave the result in `eax` |
+| db | 97 | `byte(s)` | Define arbitrary bytes in memory | 
+| ds | 100 | `short` | Define an arbitrary short integer in memory | 
 | compare | 253 | `register`, `register` | "Compare" two values (via subtraction) and set register flags |
 | eq | 208 | `pointer` | Jump if the `zero` flag is true | 
 | ne | 209 | `pointer` | Jump if the `zero` flag is false | 
@@ -29,10 +29,10 @@ A pseudo-virtual-machine designed to be a target for Garter programs. These inst
 | lt | 211 | `pointer` | Jump if the `zero` flag is false and the `carry` flag is false |
 | ge | 212 | `pointer` | Jump if the `zero` flag is true or the `carry` flag is true |
 | le | 213 | `pointer` | Jump if the `zero` flag is true or the `carry` flag is false |
-| move | 160 to 163 | `register`, `register` | sets the value of one register to that of another |
-| load | 164 to 167 | `register`, `pointer` | sets the value of a register to the value at a memory address |
-| store | 168 to 171 | `register`, `pointer` | saves the value of a register to a position in memory |
-| set | 172 to 175 | `register`, `short` | sets the value of the register to an arbitrary value |
+| move | 160 to 168 | `register`, `register` | sets the value of one register to that of another |
+| load | 169 to 177 | `register`, `pointer` | sets the value of a register to the value at a memory address |
+| store | 177 to 185 | `register`, `pointer` | saves the value of a register to a position in memory |
+| set | 186 to 194 | `register`, `short` | sets the value of the register to an arbitrary value |
 | interrupt | 128 | `byte` | signals for a program interrupt |
 
 ### Multi-Code Instructions
