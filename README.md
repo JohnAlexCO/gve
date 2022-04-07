@@ -20,8 +20,8 @@ A pseudo-virtual-machine designed to be a target for Garter programs. These inst
 | dec | 26 to 34 | `register` | decrements the value in the given `register` |
 | mul | 35 to 43 | + `register` | Multiply the value in `register` to `eax` and leave the result in `eax` |
 | div | 44 to 52 | + `register` | Divide the value in `register` from `eax` and leave the result in `eax` |
-| db | 97 | `byte(s)` | Define arbitrary bytes in memory | 
-| ds | 100 | `short` | Define an arbitrary short integer in memory | 
+| db | *none* | `byte(s)` | Define arbitrary bytes in memory | 
+| ds | *none* | `short` | Define an arbitrary short integer in memory | 
 | compare | 253 | `register`, `register` | "Compare" two values (via subtraction) and set register flags |
 | eq | 208 | `pointer` | Jump if the `zero` flag is true | 
 | ne | 209 | `pointer` | Jump if the `zero` flag is false | 
