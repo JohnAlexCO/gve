@@ -1,4 +1,4 @@
-# gvm
+# gve
 A pseudo-virtual-machine designed to be a target for [Garter](https://github.com/johnalexco/garter) programs. These instructions are not intended to map to any specific computer architecture -- instead, they're intended to be easy to emulate and potentially translate.
 
 ### Memory & Emulating the CPU
