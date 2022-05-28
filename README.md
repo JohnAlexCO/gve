@@ -1,7 +1,7 @@
 # gve
 
 ### A Simple Overview
-This program accepts the path to a binary file and interprets the data as if it were machine code using the below listed op-codes. The data from the file is loaded into the `Program Memory`, then starting from the beginning of `Program Memory` and moving forward, the data at the current isntruction pointer is converted into opcodes and arguments, and then executed. This simple loop allows `gve` to act like a pseudo virtual machine that can be easily replicated and easily targeted for bootstrapping new programming languages.
+This program accepts the path to a binary file and interprets the data as if it were machine code using the below listed op-codes. The data from the file is loaded into the `Program Memory`, then starting from the beginning of `Program Memory` and moving forward, the data at the current instruction pointer is converted into opcodes and arguments, and then executed. This simple loop allows `gve` to act like a pseudo virtual machine that can be easily replicated and easily targeted for bootstrapping new programming languages.
 
 ### The Opcode Table
 
