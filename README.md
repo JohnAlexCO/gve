@@ -1,13 +1,7 @@
 # gve
-A pseudo-virtual-machine designed to be a target for [Garter](https://github.com/johnalexco/garter) programs. These instructions are not intended to map to any specific computer architecture -- instead, they're intended to be easy to emulate and potentially translate.
 
-### Memory & Emulating the CPU
-| Region | Position | Detail |
-|---|---|---|
-| Registers | *none* | `eax`, `ecx`, `edx`, `ebx`, `c`, `z`, `sp`, `fp` and `ip` |
-| Program Memory  | 0 to `program-length` | (maximum of 50KB, `short` x 12,480) |
-| Stack | ^ +0 to +4096 | 4KB (`short` x 1,024) |
-| Free Memory | ^ +0 to +10,240 | 10KB &ndash; `fp` points to the next place unmodified by `syscalls` |
+### A Simple Overview
+This program accepts the path to a binary file and interprets the data as if it were machine code using the below listed op-codes. The data from the file is loaded into the `Program Memory`, then starting from the beginning of `Program Memory` and moving forward, the data at the current isntruction pointer is converted into opcodes and arguments, and then executed. This simple loop allows `gve` to act like a pseudo virtual machine that can be easily replicated and easily targeted for bootstrapping new programming languages.
 
 ### The Opcode Table
 
@@ -35,13 +29,13 @@ A pseudo-virtual-machine designed to be a target for [Garter](https://github.com
 | set | 186 to 194 | `register`, `short` | sets the value of the register to an arbitrary value |
 | interrupt | 128 | `byte` | signals for a program interrupt |
 
-### Multi-Code Instructions
-| Instruction | Arguments | Yield |
+### Memory & Emulating the CPU
+| Region | Position | Detail |
 |---|---|---|
-| push | `register` | `inc sp`, `store register sp` |
-| pop | `register` | `move register sp`, `dec sp` |
-| call | `pointer` | `push ip`, `push eax, ebx, ecx, & edx`, `set ip pointer` |
-| return | `pointer` | `pop edx, ecx, ebx, & eax`, `pop ip` |
+| Registers | *none* | `eax`, `ecx`, `edx`, `ebx`, `c`, `z`, `sp`, `fp` and `ip` |
+| Program Memory  | 0 to `program-length` | (maximum of 50KB, `short` x 12,480) |
+| Stack | ^ +0 to +4096 | 4KB (`short` x 1,024) |
+| Free Memory | ^ +0 to +10,240 | 10KB &ndash; `fp` points to the next place unmodified by `syscalls` |
 
 ### The Interrupt Table
 | Interrupt | eax | ebx | ecx | edx | Detail |
